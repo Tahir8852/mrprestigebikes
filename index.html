@@ -179,7 +179,7 @@
     const date = document.getElementById("date").value;
     const message = document.getElementById("message").value.trim();
 
-    const text = `*🚨 New Service Booking*%0A%0A👤 *Name:* ${name}%0A🏍️ *Bike:* ${bike}%0A🛠️ *Service:* ${service}%0A📅 *Preferred Date:* ${date}%0A📝 *Message:* ${message || 'N/A'}`;
+    const text = `*🚨 New Service Booking*👤 *Name:* ${name} 🏍️ *Bike:* ${bike} 🛠️ *Service:* ${service} 📅 *Preferred Date:* ${date} 📝 *Message:* ${message || 'N/A'}`;
 
     const whatsappNumber = "971501229934";
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
