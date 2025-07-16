@@ -86,7 +86,7 @@
 </section>
 
 
-    <section id="booking" class="py-12 px-6 bg-white">
+   <section id="booking" class="py-12 px-6 bg-white">
   <h3 class="text-3xl font-bold text-center mb-6 text-orange-500">Book a Service</h3>
   <div class="max-w-2xl mx-auto bg-gray-50 p-6 rounded-xl shadow-md">
     <form id="whatsappForm" onsubmit="sendWhatsAppMessage(event)">
@@ -95,7 +95,7 @@
         <input type="text" id="name" class="w-full border px-4 py-2 rounded" required />
       </div>
       <div class="mb-4">
-        <label class="block mb-1 font-semibold">Bike Type (Polaris, RZR, Can-Am)</label>
+        <label class="block mb-1 font-semibold">Bike Type (Polaris, ATV, RZR, Can-Am)</label>
         <input type="text" id="bike" class="w-full border px-4 py-2 rounded" required />
       </div>
       <div class="mb-4">
@@ -104,7 +104,9 @@
           <option value="">Select a service</option>
           <option value="Denting & Painting">Denting & Painting</option>
           <option value="Engine Maintenance">Engine Maintenance</option>
+          <option value="Need A Spare Part">Need A Spare Part</option>
           <option value="Suspension Repair">Suspension Repair</option>
+          <option value="Bike Pickup Service">Bike Pickup Service</option>
         </select>
       </div>
       <div class="mb-4">
@@ -124,6 +126,7 @@
     </form>
   </div>
 </section>
+
 
 
 
@@ -164,6 +167,29 @@
       </a>
       <p class="text-sm">&copy; 2025 All rights reserved.</p>
     </footer>
+<!-- Other sections like contact, footer etc -->
+
+<script>
+  function sendWhatsAppMessage(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const bike = document.getElementById("bike").value.trim();
+    const service = document.getElementById("service").value;
+    const date = document.getElementById("date").value;
+    const message = document.getElementById("message").value.trim();
+
+    const text = `*🚨 New Service Booking*%0A%0A👤 *Name:* ${name}%0A🏍️ *Bike:* ${bike}%0A🛠️ *Service:* ${service}%0A📅 *Preferred Date:* ${date}%0A📝 *Message:* ${message || 'N/A'}`;
+
+    const whatsappNumber = "971501229934";
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+
+    window.open(whatsappURL, "_blank");
+  }
+</script>
+
+</body>
+</html>
 
   </body>
 </html>
