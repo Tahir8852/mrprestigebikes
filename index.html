@@ -12,6 +12,7 @@
       body {
         font-family: 'Segoe UI', sans-serif;
       }
+      
     </style>
   </head>
   <body class="bg-white text-gray-800">
@@ -49,6 +50,96 @@
   </div>
 
 </section>
+    <!-- Include Swiper CSS in <head> -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
+<!-- Section Title -->
+<section class="py-12 bg-white">
+  <h2 class="text-3xl font-bold text-center text-orange-500 mb-8">Our Workshop in Action</h2>
+
+  <!-- Swiper Carousel -->
+  <div class="swiper mySwiper px-4">
+    <div class="swiper-wrapper">
+
+      <!-- Repeat for videos 1 to 9 -->
+      <div class="swiper-slide">
+        <video autoplay muted loop playsinline class="rounded-xl w-full h-64 object-cover">
+          <source src="videos/1.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="swiper-slide">
+        <video autoplay muted loop playsinline class="rounded-xl w-full h-64 object-cover">
+          <source src="videos/2.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="swiper-slide">
+        <video autoplay muted loop playsinline class="rounded-xl w-full h-64 object-cover">
+          <source src="videos/3.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="swiper-slide">
+        <video autoplay muted loop playsinline class="rounded-xl w-full h-64 object-cover">
+          <source src="videos/4.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="swiper-slide">
+        <video autoplay muted loop playsinline class="rounded-xl w-full h-64 object-cover">
+          <source src="videos/5.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="swiper-slide">
+        <video autoplay muted loop playsinline class="rounded-xl w-full h-64 object-cover">
+          <source src="videos/6.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="swiper-slide">
+        <video autoplay muted loop playsinline class="rounded-xl w-full h-64 object-cover">
+          <source src="videos/7.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="swiper-slide">
+        <video autoplay muted loop playsinline class="rounded-xl w-full h-64 object-cover">
+          <source src="videos/8.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="swiper-slide">
+        <video autoplay muted loop playsinline class="rounded-xl w-full h-64 object-cover">
+          <source src="videos/9.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Swiper JS just before </body> -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Swiper Init Script -->
+<script>
+  const swiper = new Swiper(".mySwiper", {
+    loop: true,
+    slidesPerView: 1.2,
+    spaceBetween: 16,
+    centeredSlides: true,
+    autoplay: {
+      delay: 6000,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 3,
+      },
+    },
+  });
+</script>
+
 
 
 
