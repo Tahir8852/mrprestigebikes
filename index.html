@@ -27,15 +27,13 @@
     </header>
 
     <!-- Hero Section -->
-   <section class="relative h-[90vh] w-full overflow-hidden flex items-center justify-center text-white">
-
- <!-- Portrait Image Background -->
-<img src="10.jpg" alt="Hero Background"
-  class="absolute top-1/2 left-1/2 min-w-full min-h-full transform -translate-x-1/2 -translate-y-1/2 object-cover z-0" />
-
-
-  <!-- Dark Overlay -->
-  <div class="absolute inset-0 bg-black/60"></div>
+  <!-- Hero Section -->
+<section class="relative h-[90vh] w-full overflow-hidden flex items-center justify-center text-white">
+  <!-- Image Background -->
+  <div class="absolute inset-0">
+    <img src="10.jpg" alt="MR Prestige Bikes Repair" class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-black/60"></div> <!-- Dark Overlay -->
+  </div>
 
   <!-- Text Content -->
   <div class="relative z-10 text-center px-6 max-w-2xl">
@@ -46,8 +44,8 @@
       Book Your Service
     </a>
   </div>
-
 </section>
+
     <!-- Include Swiper CSS in <head> -->
 <link
   rel="stylesheet"
