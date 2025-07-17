@@ -403,6 +403,32 @@
 
     window.open(whatsappURL, "_blank");}
 </script>
+    <script>
+  let currentLang = 'en'; // Default language
+
+  function toggleLanguage() {
+    const enTexts = document.querySelectorAll('.lang-en');
+    const arTexts = document.querySelectorAll('.lang-ar');
+
+    if (currentLang === 'en') {
+      enTexts.forEach(el => el.classList.add('hidden'));
+      arTexts.forEach(el => el.classList.remove('hidden'));
+      document.body.dir = "rtl";
+      currentLang = 'ar';
+    } else {
+      enTexts.forEach(el => el.classList.remove('hidden'));
+      arTexts.forEach(el => el.classList.add('hidden'));
+      document.body.dir = "ltr";
+      currentLang = 'en';
+    }
+  }
+
+  // Set English as default
+  window.onload = () => {
+    toggleLanguage(); // If you want Arabic by default, call it once
+  };
+</script>
+
 
   </body>
 </html>
