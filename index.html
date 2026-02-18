@@ -404,8 +404,133 @@
 
     window.open(whatsappURL, "_blank");}
 </script>
+    <!-- 🤖 Premium AI Assistant -->
+<div id="premium-ai-icon">💬</div>
+
+<div id="premium-ai-box">
+  <div class="premium-header">
+    MR Prestige AI
+    <span onclick="closeAI()">✖</span>
+  </div>
+  <div id="premium-chat-body"></div>
+  <div class="premium-footer">
+    <input type="text" id="premium-user-input" placeholder="Ask about services..." />
+    <button onclick="sendPremiumMessage()">Send</button>
+  </div>
+</div>
+
+<style>
+#premium-ai-icon {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  background: linear-gradient(135deg,#f97316,#ea580c);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:22px;
+  cursor:pointer;
+  z-index:9999;
+  box-shadow:0 8px 25px rgba(0,0,0,0.3);
+}
+
+#premium-ai-box {
+  position: fixed;
+  bottom: 160px;
+  right: 20px;
+  width: 340px;
+  background:white;
+  border-radius:16px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.3);
+  display:none;
+  flex-direction:column;
+  overflow:hidden;
+  z-index:9999;
+  font-family:sans-serif;
+}
+
+.premium-header {
+  background:linear-gradient(135deg,#f97316,#ea580c);
+  color:white;
+  padding:12px;
+  font-weight:bold;
+  display:flex;
+  justify-content:space-between;
+}
+
+#premium-chat-body {
+  padding:12px;
+  height:260px;
+  overflow-y:auto;
+  font-size:14px;
+}
+
+.premium-footer {
+  display:flex;
+  border-top:1px solid #ddd;
+}
+
+.premium-footer input {
+  flex:1;
+  padding:10px;
+  border:none;
+  outline:none;
+}
+
+.premium-footer button {
+  background:#f97316;
+  color:white;
+  border:none;
+  padding:10px 15px;
+  cursor:pointer;
+}
+</style>
+
+<script>
+document.getElementById("premium-ai-icon").onclick = () => {
+  document.getElementById("premium-ai-box").style.display = "flex";
+};
+
+function closeAI() {
+  document.getElementById("premium-ai-box").style.display = "none";
+}
+
+async function sendPremiumMessage() {
+  const input = document.getElementById("premium-user-input");
+  const message = input.value.trim();
+  if (!message) return;
+
+  const chatBody = document.getElementById("premium-chat-body");
+
+  // Show user message
+  chatBody.innerHTML += `<div style="text-align:right;margin-bottom:8px;"><b>You:</b> ${message}</div>`;
+  input.value = "";
+
+  try {
+    const response = await fetch("/.netlify/functions/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message })
+    });
+
+    const data = await response.json();
+
+    chatBody.innerHTML += `<div style="margin-bottom:8px;"><b>AI:</b> ${data.reply}</div>`;
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+  } catch (error) {
+    chatBody.innerHTML += `<div style="color:red;margin-bottom:8px;">AI connection error.</div>`;
+  }
+}
+</script>
+
 
 
 
   </body>
 </html>
+
