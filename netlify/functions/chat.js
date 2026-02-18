@@ -1,30 +1,51 @@
-async function sendPremiumMessage() {
-  const input = document.getElementById("premium-user-input");
-  const message = input.value.trim();
-  if (!message) return;
+const fetch = require('node-fetch');
 
-  const chatBody = document.getElementById("premium-chat-body");
-  chatBody.innerHTML += `<div style="text-align:right;margin-bottom:8px;"><b>You:</b> ${message}</div>`;
-  input.value = "";
-
-  // Typing... status
-  const loadingId = "loading-" + Date.now();
-  chatBody.innerHTML += `<div id="${loadingId}" style="margin-bottom:8px;"><b>AI:</b> Typing...</div>`;
-  chatBody.scrollTop = chatBody.scrollHeight;
+exports.handler = async (event) => {
+  if (event.httpMethod !== "POST") {
+    return { statusCode: 405, body: "Method Not Allowed" };
+  }
 
   try {
-    const response = await fetch("/.netlify/functions/chat", {
+    const { message } = JSON.parse(event.body);
+
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message })
+      headers: {
+        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: "gpt-3.5-turbo",
+        messages: [
+          { role: "system", content: "You are a helpful assistant for MR Prestige Bikes Repair Shop in Abu Dhabi." },
+          { role: "user", content: message }
+        ],
+      }),
     });
 
     const data = await response.json();
-    document.getElementById(loadingId).remove(); // Remove loader
-    
-    chatBody.innerHTML += `<div style="margin-bottom:8px;"><b>AI:</b> ${data.reply}</div>`;
+
+    // Agar OpenAI koi error bhejta hai (like quota exceeded)
+    if (data.error) {
+      console.error("OpenAI Error:", data.error.message);
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ reply: "AI Error: " + data.error.message })
+      };
+    }
+
+    // Response nikalne ka sahi tariqa
+    const aiReply = data.choices && data.choices[0] && data.choices[0].message ? data.choices[0].message.content : "No response from AI";
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ reply: aiReply }),
+    };
   } catch (error) {
-    document.getElementById(loadingId).innerHTML = `<b style="color:red;">AI Error:</b> Connection failed.`;
+    console.error("Function Error:", error);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ reply: "Server connection failed." }),
+    };
   }
-  chatBody.scrollTop = chatBody.scrollHeight;
-}
+};
