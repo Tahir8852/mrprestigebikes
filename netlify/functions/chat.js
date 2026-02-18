@@ -7,27 +7,24 @@ async function sendPremiumMessage() {
   chatBody.innerHTML += `<div style="text-align:right;margin-bottom:8px;"><b>You:</b> ${message}</div>`;
   input.value = "";
 
-  // Loader show karein
-  chatBody.innerHTML += `<div id="ai-loading" style="margin-bottom:8px;"><b>AI:</b> Typing...</div>`;
+  // Typing... status
+  const loadingId = "loading-" + Date.now();
+  chatBody.innerHTML += `<div id="${loadingId}" style="margin-bottom:8px;"><b>AI:</b> Typing...</div>`;
+  chatBody.scrollTop = chatBody.scrollHeight;
 
   try {
-    // Yahan hum Netlify ki bajaye direct logic likh rahe hain ya kisi sahi URL ko call kar rahe hain
-    // Agar aapke paas koi backend nahi hai, to aapko ek service use karni paregi
-    
-    const response = await fetch("APKI_BACKEND_URL_YAHAN_AAYEGI", {
+    const response = await fetch("/.netlify/functions/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message })
     });
 
     const data = await response.json();
-    document.getElementById("ai-loading").remove(); // Loader hatayein
-    chatBody.innerHTML += `<div style="margin-bottom:8px;"><b>AI:</b> ${data.reply || data.choices[0].message.content}</div>`;
-
+    document.getElementById(loadingId).remove(); // Remove loader
+    
+    chatBody.innerHTML += `<div style="margin-bottom:8px;"><b>AI:</b> ${data.reply}</div>`;
   } catch (error) {
-    if(document.getElementById("ai-loading")) document.getElementById("ai-loading").remove();
-    chatBody.innerHTML += `<div style="color:red;margin-bottom:8px;">AI connection error. Please check backend setup.</div>`;
-    console.error("Error details:", error);
+    document.getElementById(loadingId).innerHTML = `<b style="color:red;">AI Error:</b> Connection failed.`;
   }
   chatBody.scrollTop = chatBody.scrollHeight;
 }
