@@ -160,7 +160,7 @@
     </div>
   </div>
 </section>
-  <!-- Advance Maintenance Booking Offer -->
+
 <section class="py-12 px-6 bg-orange-50">
   <div class="max-w-5xl mx-auto bg-white rounded-xl shadow-md p-8 md:p-12 text-center">
 
@@ -404,101 +404,151 @@
 
     window.open(whatsappURL, "_blank");}
 </script>
-    <!-- 🤖 Premium AI Assistant -->
 <div id="premium-ai-icon">💬</div>
 
 <div id="premium-ai-box">
   <div class="premium-header">
-    MR Prestige AI
-    <span onclick="closeAI()">✖</span>
+    <span>MR Prestige AI</span>
+    <span onclick="closeAI()" style="cursor:pointer; font-size:20px;">&times;</span>
   </div>
-  <div id="premium-chat-body"></div>
+  <div id="premium-chat-body">
+    <div style="margin-bottom:8px; color:#666; font-style:italic;">
+      AI: Welcome! Ask me about Polaris, Can-Am repairs, or Liwa 2026.
+    </div>
+  </div>
   <div class="premium-footer">
-    <input type="text" id="premium-user-input" placeholder="Ask about services..." />
+    <input type="text" id="premium-user-input" placeholder="Type your message..." autocomplete="off" />
     <button onclick="sendPremiumMessage()">Send</button>
   </div>
 </div>
 
 <style>
+/* AI Icon Styling */
 #premium-ai-icon {
   position: fixed;
-  bottom: 90px;
+  bottom: 30px; /* Thoda niche kiya hai taake screen saaf rahay */
   right: 20px;
-  background: linear-gradient(135deg,#f97316,#ea580c);
+  background: linear-gradient(135deg, #f97316, #ea580c);
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:white;
-  font-size:22px;
-  cursor:pointer;
-  z-index:9999;
-  box-shadow:0 8px 25px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
 }
 
+#premium-ai-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Chat Box Styling */
 #premium-ai-box {
   position: fixed;
-  bottom: 160px;
+  bottom: 100px;
   right: 20px;
-  width: 340px;
-  background:white;
-  border-radius:16px;
-  box-shadow:0 15px 40px rgba(0,0,0,0.3);
-  display:none;
-  flex-direction:column;
-  overflow:hidden;
-  z-index:9999;
-  font-family:sans-serif;
+  width: 350px;
+  max-width: 90%;
+  height: 450px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  display: none; /* Default hidden */
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 9999;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .premium-header {
-  background:linear-gradient(135deg,#f97316,#ea580c);
-  color:white;
-  padding:12px;
-  font-weight:bold;
-  display:flex;
-  justify-content:space-between;
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  color: white;
+  padding: 15px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #premium-chat-body {
-  padding:12px;
-  height:260px;
-  overflow-y:auto;
-  font-size:14px;
+  padding: 15px;
+  flex: 1;
+  overflow-y: auto;
+  font-size: 14px;
+  background-color: #fdfdfd;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Message Bubbles */
+.user-msg {
+  align-self: flex-end;
+  background: #f97316;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 15px 15px 0 15px;
+  margin-bottom: 10px;
+  max-width: 80%;
+}
+
+.ai-msg {
+  align-self: flex-start;
+  background: #eee;
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 15px 15px 15px 0;
+  margin-bottom: 10px;
+  max-width: 80%;
 }
 
 .premium-footer {
-  display:flex;
-  border-top:1px solid #ddd;
+  display: flex;
+  border-top: 1px solid #eee;
+  padding: 10px;
+  background: white;
 }
 
 .premium-footer input {
-  flex:1;
-  padding:10px;
-  border:none;
-  outline:none;
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  outline: none;
+  margin-right: 8px;
 }
 
 .premium-footer button {
-  background:#f97316;
-  color:white;
-  border:none;
-  padding:10px 15px;
-  cursor:pointer;
+  background: #f97316;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.premium-footer button:hover {
+  background: #ea580c;
 }
 </style>
 
 <script>
+// Open/Close logic
 document.getElementById("premium-ai-icon").onclick = () => {
-  document.getElementById("premium-ai-box").style.display = "flex";
+  const box = document.getElementById("premium-ai-box");
+  box.style.display = (box.style.display === "flex") ? "none" : "flex";
 };
 
 function closeAI() {
   document.getElementById("premium-ai-box").style.display = "none";
 }
 
+// Typing logic
 async function sendPremiumMessage() {
   const input = document.getElementById("premium-user-input");
   const message = input.value.trim();
@@ -506,9 +556,15 @@ async function sendPremiumMessage() {
 
   const chatBody = document.getElementById("premium-chat-body");
 
-  // Show user message
-  chatBody.innerHTML += `<div style="text-align:right;margin-bottom:8px;"><b>You:</b> ${message}</div>`;
+  // Add User Message
+  chatBody.innerHTML += `<div class="user-msg"><b>You:</b> ${message}</div>`;
   input.value = "";
+  chatBody.scrollTop = chatBody.scrollHeight;
+
+  // Add Loading/Typing Indicator
+  const loadingId = "load-" + Date.now();
+  chatBody.innerHTML += `<div id="${loadingId}" class="ai-msg"><b>AI:</b> Typing...</div>`;
+  chatBody.scrollTop = chatBody.scrollHeight;
 
   try {
     const response = await fetch("/.netlify/functions/chat", {
@@ -518,14 +574,32 @@ async function sendPremiumMessage() {
     });
 
     const data = await response.json();
+    
+    // Remove loading
+    const loadingElem = document.getElementById(loadingId);
+    if(loadingElem) loadingElem.remove();
 
-    chatBody.innerHTML += `<div style="margin-bottom:8px;"><b>AI:</b> ${data.reply}</div>`;
-    chatBody.scrollTop = chatBody.scrollHeight;
+    // Fix for Undefined: Check multiple possible paths
+    const aiReply = data.reply || (data.choices && data.choices[0].message.content) || "I'm sorry, I'm having trouble connecting. Please try again later.";
+
+    chatBody.innerHTML += `<div class="ai-msg"><b>AI:</b> ${aiReply}</div>`;
 
   } catch (error) {
-    chatBody.innerHTML += `<div style="color:red;margin-bottom:8px;">AI connection error.</div>`;
+    const loadingElem = document.getElementById(loadingId);
+    if(loadingElem) loadingElem.innerHTML = "<b>AI:</b> Connection error. Check your API key or Netlify logs.";
+    console.error("Fetch error:", error);
   }
+  
+  chatBody.scrollTop = chatBody.scrollHeight;
 }
+
+// Enter Key Support
+document.getElementById("premium-user-input").addEventListener("keypress", function(e) {
+  if (e.key === "Enter") {
+    sendPremiumMessage();
+  }
+});
+
 </script>
 
 
