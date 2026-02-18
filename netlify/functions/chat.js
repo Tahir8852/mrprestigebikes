@@ -1,51 +1,33 @@
-export async function handler(event) {
+async function sendPremiumMessage() {
+  const input = document.getElementById("premium-user-input");
+  const message = input.value.trim();
+  if (!message) return;
+
+  const chatBody = document.getElementById("premium-chat-body");
+  chatBody.innerHTML += `<div style="text-align:right;margin-bottom:8px;"><b>You:</b> ${message}</div>`;
+  input.value = "";
+
+  // Loader show karein
+  chatBody.innerHTML += `<div id="ai-loading" style="margin-bottom:8px;"><b>AI:</b> Typing...</div>`;
+
   try {
-    const { message } = JSON.parse(event.body);
-
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    // Yahan hum Netlify ki bajaye direct logic likh rahe hain ya kisi sahi URL ko call kar rahe hain
+    // Agar aapke paas koi backend nahi hai, to aapko ek service use karni paregi
+    
+    const response = await fetch("APKI_BACKEND_URL_YAHAN_AAYEGI", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`
-      },
-      body: JSON.stringify({
-        model: "gpt-4o-mini",
-        messages: [
-          {
-            role: "system",
-            content: `You are a premium AI assistant for MR Prestige Bikes Repair Shop in Abu Dhabi.
-            
-Services:
-- Denting & Painting
-- Engine Maintenance
-- Suspension Repair
-- Spare Parts
-- Bike Pickup Service
-
-Rules:
-- Always suggest relevant service.
-- Keep replies short & professional.
-- Encourage WhatsApp booking at 971501229934.`
-          },
-          { role: "user", content: message }
-        ]
-      })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message })
     });
 
     const data = await response.json();
-
-    return {
-      statusCode: 200,
-      body: JSON.stringify({
-        reply: data.choices[0].message.content
-      })
-    };
+    document.getElementById("ai-loading").remove(); // Loader hatayein
+    chatBody.innerHTML += `<div style="margin-bottom:8px;"><b>AI:</b> ${data.reply || data.choices[0].message.content}</div>`;
 
   } catch (error) {
-    console.error(error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ reply: "AI Error" })
-    };
+    if(document.getElementById("ai-loading")) document.getElementById("ai-loading").remove();
+    chatBody.innerHTML += `<div style="color:red;margin-bottom:8px;">AI connection error. Please check backend setup.</div>`;
+    console.error("Error details:", error);
   }
+  chatBody.scrollTop = chatBody.scrollHeight;
 }
