@@ -1,91 +1,417 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta name="description" content="MR Prestige Bikes Repair Shop offers expert services in Polaris, Can-Am, and RZR bike maintenance including painting, engine repair, and suspension tuning in Abu Dhabi.">
-  <meta name="keywords" content="bike repair Abu Dhabi, Polaris maintenance UAE, RZR painting service, Can-Am engine tuning, off-road bike suspension repair, MR Prestige Bikes Shop">
+  <head>
+    <meta name="description" content="MR Prestige Bikes Repair Shop offers expert services in Polaris, Can-Am, and RZR bike maintenance including painting, engine repair, and suspension tuning in Abu Dhabi.">
+<meta name="keywords" content="bike repair Abu Dhabi, Polaris maintenance UAE, RZR painting service, Can-Am engine tuning, off-road bike suspension repair, MR Prestige Bikes Shop">
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MR PRESTIGE BIKES REPAIR SHOP</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body { font-family: 'Segoe UI', sans-serif; }
-  </style>
-</head>
-<body class="bg-white text-gray-800">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MR PRESTIGE BIKES REPAIR SHOP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: 'Segoe UI', sans-serif;
+      }
+      <button onclick="toggleLanguage()" class="bg-gray-200 px-3 py-1 rounded hover:bg-orange-500 hover:text-white">
+  🌐 Language
+</button>
 
-<!-- Navbar -->
-<header class="flex items-center justify-between p-4 bg-white shadow-md">
-  <div class="flex items-center space-x-3">
-    <img src="logo.png" alt="Logo" class="h-14 w-14" />
-    <h1 class="text-2xl font-bold text-orange-500">MR PRESTIGE BIKES</h1>
-  </div>
-  <a href="#booking" class="bg-orange-500 text-white px-4 py-2 rounded-xl hover:bg-orange-600">Book Now</a>
-</header>
+      
+    </style>
+  </head>
+  <body class="bg-white text-gray-800">
 
-<!-- Hero Section -->
+    <!-- Navbar -->
+    <header class="flex items-center justify-between p-4 bg-white shadow-md">
+      <div class="flex items-center space-x-3">
+        <img src="logo.png" alt="Logo" class="h-14 w-14" />
+        <h1 class="text-2xl font-bold text-orange-500">MR PRESTIGE BIKES</h1>
+      </div>
+      <a href="#booking" class="bg-orange-500 text-white px-4 py-2 rounded-xl hover:bg-orange-600">Book Now</a>
+    </header>
+
+  <!-- Hero Section -->
 <section class="relative h-[90vh] w-full overflow-hidden flex items-center justify-center text-white">
+  <!-- Image Background -->
   <div class="absolute inset-0">
     <img src="10.jpeg" alt="MR Prestige Bikes Repair" class="w-full h-full object-cover" />
-    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="absolute inset-0 bg-black/60"></div> <!-- Dark Overlay -->
   </div>
+
+  <!-- Text Content -->
   <div class="relative z-10 text-center px-6 max-w-2xl">
     <h1 class="text-4xl md:text-5xl font-extrabold mb-4">MR PRESTIGE BIKES REPAIR SHOP</h1>
     <p class="mb-6 text-lg md:text-xl font-medium">Polaris | Can-Am | RZR | ATV Repairs</p>
-    <a href="#booking" class="inline-block bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-full font-bold transition">Book Your Service</a>
+    <a href="#booking"
+      class="inline-block bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-full font-bold transition">
+      Book Your Service
+    </a>
   </div>
 </section>
 
-<!-- Swiper Section -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <!-- Include Swiper CSS in <head> -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
+<!-- Section Title -->
 <section class="py-12 bg-white">
   <h2 class="text-3xl font-bold text-center text-orange-500 mb-8">Our Workshop in Action</h2>
+
+  <!-- Swiper Carousel -->
   <div class="swiper mySwiper px-4">
     <div class="swiper-wrapper">
-      <div class="swiper-slide"><video autoplay muted loop playsinline class="rounded-xl w-full h-64 object-cover"><source src="2.mp4" type="video/mp4" /></video></div>
-      <div class="swiper-slide"><video autoplay muted loop playsinline class="rounded-xl w-full h-64 object-cover"><source src="3.mp4" type="video/mp4" /></video></div>
-      <div class="swiper-slide"><video autoplay muted loop playsinline class="rounded-xl w-full h-64 object-cover"><source src="4.mp4" type="video/mp4" /></video></div>
-      <div class="swiper-slide"><video autoplay muted loop playsinline class="rounded-xl w-full h-64 object-cover"><source src="5.mp4" type="video/mp4" /></video></div>
-      <div class="swiper-slide"><video autoplay muted loop playsinline class="rounded-xl w-full h-64 object-cover"><source src="6.mp4" type="video/mp4" /></video></div>
-      <div class="swiper-slide"><video autoplay muted loop playsinline class="rounded-xl w-full h-64 object-cover"><source src="7.mp4" type="video/mp4" /></video></div>
-      <div class="swiper-slide"><video autoplay muted loop playsinline class="rounded-xl w-full h-64 object-cover"><source src="8.mp4" type="video/mp4" /></video></div>
-      <div class="swiper-slide"><video autoplay muted loop playsinline class="rounded-xl w-full h-64 object-cover"><source src="9.mp4" type="video/mp4" /></video></div>
+
+      <!-- Repeat for videos 2 to 9 -->
+      <div class="swiper-slide">
+        <video autoplay muted loop playsinline class="rounded-xl w-full h-64 object-cover">
+          <source src="2.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="swiper-slide">
+        <video autoplay muted loop playsinline class="rounded-xl w-full h-64 object-cover">
+          <source src="3.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="swiper-slide">
+        <video autoplay muted loop playsinline class="rounded-xl w-full h-64 object-cover">
+          <source src="4.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="swiper-slide">
+        <video autoplay muted loop playsinline class="rounded-xl w-full h-64 object-cover">
+          <source src="5.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="swiper-slide">
+        <video autoplay muted loop playsinline class="rounded-xl w-full h-64 object-cover">
+          <source src="6.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="swiper-slide">
+        <video autoplay muted loop playsinline class="rounded-xl w-full h-64 object-cover">
+          <source src="7.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="swiper-slide">
+        <video autoplay muted loop playsinline class="rounded-xl w-full h-64 object-cover">
+          <source src="8.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="swiper-slide">
+        <video autoplay muted loop playsinline class="rounded-xl w-full h-64 object-cover">
+          <source src="9.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+    </div>
+  </div>
+ 
+<!-- Events Section -->
+<section id="events" class="py-12 px-6 bg-gray-100">
+
+  <!-- Past Event Section -->
+  <h3 class="text-3xl font-bold text-center text-orange-500 mb-6">Past Event – Liwa 2025</h3>
+
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 mb-12">
+
+    <!-- Past Event Image 1 -->
+    <img src="atv.png" alt="Liwa Ride 2025" class="rounded-xl shadow w-full h-60 object-cover">
+
+    <!-- Past Event Image 2 -->
+    <img src="atv2.png" alt="Desert Camp" class="rounded-xl shadow w-full h-60 object-cover">
+
+    <!-- Past Event Video -->
+    <video controls class="rounded-xl shadow w-full h-60 object-cover">
+      <source src="2025.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+  </div>
+
+  <!-- Upcoming Event Section -->
+  <h3 class="text-3xl font-bold text-center text-orange-500 mb-8">Upcoming Event – Liwa 2026</h3>
+
+  <div class="max-w-5xl mx-auto bg-white rounded-xl shadow-md p-6 md:p-10 hover:shadow-lg transition duration-300">
+    <div class="grid md:grid-cols-2 gap-6 items-center">
+
+      <!-- Event Image -->
+      <img src="liwa.2026.png" alt="Liwa 2026" class="rounded-lg w-full h-64 object-cover shadow-sm">
+
+      <!-- Event Details -->
+      <div>
+        <h4 class="text-2xl font-semibold text-gray-800 mb-3">Liwa Desert Ride & Mega Service Camp 2026</h4>
+        <p class="text-gray-600 mb-4 leading-relaxed">
+          Get ready for another unforgettable adventure with <strong>MR PRESTIGE BIKES</strong> at Liwa Desert 2026!
+          New activities, better gear support, and exciting offers await. Book early and be part of the thrill!
+        </p>
+        <p class="text-sm text-gray-500 mb-4">
+          📍 <strong>Location:</strong> Liwa Desert, UAE<br>
+          📅 <strong>Date:</strong> 1–30 August 2026
+        </p>
+
+        <a href="https://wa.me/971501229934?text=I%20want%20to%20register%20for%20Liwa%20Event%202026"
+           target="_blank"
+           class="inline-block bg-orange-500 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-600 transition">
+          Register via WhatsApp
+        </a>
+      </div>
     </div>
   </div>
 </section>
+  <!-- Advance Maintenance Booking Offer -->
+<section class="py-12 px-6 bg-orange-50">
+  <div class="max-w-5xl mx-auto bg-white rounded-xl shadow-md p-8 md:p-12 text-center">
 
+    <h2 class="text-3xl font-bold text-orange-500 mb-4">🎁 Advance Maintenance Booking Offer</h2>
+    <p class="text-gray-700 text-lg mb-6">
+      Book your maintenance service in advance for just <strong>200 AED</strong> and enjoy 
+      <span class="text-orange-500 font-bold">up to 50% discount</span> at the Liwa 2026 Event!
+    </p>
+
+    <ul class="text-gray-600 text-left mb-6 max-w-md mx-auto space-y-3">
+      <li>✅ Guaranteed service spot at the event</li>
+      <li>✅ Priority maintenance by expert technicians</li>
+      <li>✅ Save up to 50% on standard charges</li>
+      <li>✅ Peace of mind – no last-minute queues</li>
+    </ul>
+
+    <a href="https://wa.me/971501229934?text=I%20want%20to%20book%20advance%20maintenance%20for%20Liwa%202026%20event"
+       target="_blank"
+       class="bg-orange-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-orange-600 transition">
+      Book Now on WhatsApp
+    </a>
+  </div>
+  
+</section>
+
+
+
+</section>
+
+<!-- Swiper JS just before </body> -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Swiper Init Script -->
 <script>
-const swiper = new Swiper(".mySwiper", {
-  loop: true,
-  slidesPerView: 1.2,
-  spaceBetween: 16,
-  centeredSlides: true,
-  autoplay: { delay: 6000, disableOnInteraction: false },
-  breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
-});
+  const swiper = new Swiper(".mySwiper", {
+    loop: true,
+    slidesPerView: 1.2,
+    spaceBetween: 16,
+    centeredSlides: true,
+    autoplay: {
+      delay: 6000,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 3,
+      },
+    },
+  });
 </script>
 
-<!-- Booking Form, Services, Gallery, Footer remain unchanged -->
-<!-- WhatsApp Form Script -->
-<script>
-function sendWhatsAppMessage(event) {
-  event.preventDefault();
-  const name = document.getElementById("name").value.trim();
-  const bike = document.getElementById("bike").value.trim();
-  const service = document.getElementById("service").value;
-  const date = document.getElementById("date").value;
-  const message = document.getElementById("message").value.trim();
-  const text = `*🚨 New Service Booking*👤 *Name:* ${name} 🏍️ *Bike:* ${bike} 🛠️ *Service:* ${service} 📅 *Preferred Date:* ${date} 📝 *Message:* ${message || 'N/A'}`;
-  const whatsappNumber = "971501229934";
-  window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`, "_blank");
-}
-</script>
 
-<!-- 🤖 Premium AI Assistant -->
+
+
+
+    <!-- Services -->
+    <section id="services" class="py-12 px-6 bg-gray-50">
+  <h3 class="text-3xl font-bold text-center mb-10 text-orange-500">
+    Our Bike Repair & Maintenance Services in UAE
+  </h3>
+  <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+    <!-- Denting & Painting -->
+    <div class="p-6 bg-white rounded-xl shadow-md hover:shadow-xl border-t-4 border-orange-400 transition duration-300">
+      <div class="text-4xl mb-3">🎨</div>
+      <h4 class="text-xl font-semibold mb-2 text-gray-800">
+        Bike Denting & Painting in Abu Dhabi
+      </h4>
+      <p class="text-gray-600">
+        Professional bike denting and painting services for Polaris, Can-Am, and RZR bikes. We restore your bike's look with high-quality automotive paint and finish.
+      </p>
+    </div>
+
+    <!-- Engine Maintenance -->
+    <div class="p-6 bg-white rounded-xl shadow-md hover:shadow-xl border-t-4 border-orange-400 transition duration-300">
+      <div class="text-4xl mb-3">🛠️</div>
+      <h4 class="text-xl font-semibold mb-2 text-gray-800">
+        Polaris, Can-Am & RZR Engine Maintenance UAE
+      </h4>
+      <p class="text-gray-600">
+        We provide complete engine diagnostics, oil changes, filter replacement, and performance tuning for off-road bikes like Polaris, RZR, and Can-Am.
+      </p>
+    </div>
+
+    <!-- Suspension Repair -->
+    <div class="p-6 bg-white rounded-xl shadow-md hover:shadow-xl border-t-4 border-orange-400 transition duration-300">
+      <div class="text-4xl mb-3">🔧</div>
+      <h4 class="text-xl font-semibold mb-2 text-gray-800">
+        Suspension & Shock Absorber Repair
+      </h4>
+      <p class="text-gray-600">
+        Expert suspension repair for off-road bikes. We fix and replace shock absorbers, forks, and provide complete suspension system tuning in Abu Dhabi.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+   <section id="booking" class="py-12 px-6 bg-white">
+  <h3 class="text-3xl font-bold text-center mb-6 text-orange-500">Book a Service</h3>
+  <div class="max-w-2xl mx-auto bg-gray-50 p-6 rounded-xl shadow-md">
+    <form id="whatsappForm" onsubmit="sendWhatsAppMessage(event)">
+      <div class="mb-4">
+        <label class="block mb-1 font-semibold">Full Name</label>
+        <input type="text" id="name" class="w-full border px-4 py-2 rounded" required />
+      </div>
+      <div class="mb-4">
+        <label class="block mb-1 font-semibold">Bike Type (Polaris, ATV, RZR, Can-Am)</label>
+        <input type="text" id="bike" class="w-full border px-4 py-2 rounded" required />
+      </div>
+      <div class="mb-4">
+        <label class="block mb-1 font-semibold">Service Needed</label>
+        <select id="service" class="w-full border px-4 py-2 rounded" required>
+          <option value="">Select a service</option>
+          <option value="Denting & Painting">Denting & Painting</option>
+          <option value="Engine Maintenance">Engine Maintenance</option>
+          <option value="Need A Spare Part">Need A Spare Part</option>
+          <option value="Suspension Repair">Suspension Repair</option>
+          <option value="Bike Pickup Service">Bike Pickup Service</option>
+        </select>
+      </div>
+      <div class="mb-4">
+        <label class="block mb-1 font-semibold">Preferred Date</label>
+        <input type="date" id="date" class="w-full border px-4 py-2 rounded" required />
+      </div>
+      <div class="mb-4">
+        <label class="block mb-1 font-semibold">Message (optional)</label>
+        <textarea id="message" class="w-full border px-4 py-2 rounded"></textarea>
+      </div>
+      <button
+        type="submit"
+        class="w-full bg-orange-500 text-white py-3 rounded-xl hover:bg-orange-600 font-bold"
+      >
+        Submit via WhatsApp
+      </button>
+    </form>
+  </div>
+</section>
+
+
+
+
+    <!-- Google Map -->
+    <section class="py-12 bg-gray-100 px-6">
+      <h3 class="text-3xl font-bold text-center mb-6 text-orange-500">Find Us</h3>
+      <div class="max-w-4xl mx-auto">
+        <iframe
+          src="https://maps.google.com/maps?q=MR%20Prestige%20Bikes%20Repair%20Shop&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          width="100%"
+          height="400"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="py-12 px-6">
+      <h3 class="text-3xl font-bold text-center mb-6 text-orange-500">Our shop Work  performance</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <img src="g1.jpeg" alt="bike1" class="rounded-xl shadow" />
+        <img src="g2.jpeg" alt="bike1" class="rounded-xl shadow" />
+        <img src="g3.jpeg" alt="bike1" class="rounded-xl shadow" />
+        <img src="g4.jpeg" alt="bike1" class="rounded-xl shadow" />
+        <img src="g5.jpeg" alt="bike1" class="rounded-xl shadow" />
+        <img src="g6.jpeg" alt="bike1" class="rounded-xl shadow" />
+        <img src="g7.jpeg" alt="bike1" class="rounded-xl shadow" />
+        <img src="g8.jpeg" alt="bike1" class="rounded-xl shadow" />
+        <img src="oip.webp" alt="bike1" class="rounded-xl shadow" />
+        <img src="can am.webp" alt="bike2" class="rounded-xl shadow" />
+        <img src="pexels-amar-19133798.jpg" alt="bike3" class="rounded-xl shadow" />
+      </div>
+    </section>
+
+    <!-- Contact & Footer -->
+   <footer class="bg-gradient-to-tr from-orange-500 to-yellow-400 text-white py-12">
+  <div class="max-w-5xl mx-auto px-4">
+    <h4 class="text-3xl font-bold text-center mb-10">Get in Touch</h4>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg">
+
+      <!-- Call -->
+      <div class="flex items-center space-x-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h2l3.6 7.59-1.35 2.44a1 1 0 001.65 1.13l2.12-1.26a1 1 0 011.06 0l4.24 2.47a1 1 0 001.66-1.11l-1.29-2.53L21 11V3H3v2z" />
+        </svg>
+        <a href="tel:+971501229934" class="hover:underline font-medium">+971 50 122 9934</a>
+      </div>
+
+      <!-- WhatsApp -->
+      <div class="flex items-center space-x-4">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" class="h-7 w-7" />
+        <a href="https://wa.me/971501229934" target="_blank" class="hover:underline font-medium">Chat on WhatsApp</a>
+      </div>
+
+      <!-- Instagram -->
+      <div class="flex items-center space-x-4">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="h-7 w-7" />
+        <a href="https://instagram.com/mrprestigebikes" target="_blank" class="hover:underline font-medium">@mrprestigebikes</a>
+      </div>
+
+      <!-- Email -->
+      <div class="flex items-center space-x-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12l-4-4-4 4m8 0H8" />
+        </svg>
+        <a href="mailto:misterprestige2013@gmail.com" class="hover:underline font-medium">misterprestige2013@gmail.com</a>
+      </div>
+
+    </div>
+
+    <div class="mt-10 text-center text-sm text-white/80">
+      &copy; 2013 MR PRESTIGE BIKES REPAIR SHOP. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+
+<!-- Other sections like contact, footer etc -->
+
+<script>
+  function sendWhatsAppMessage(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const bike = document.getElementById("bike").value.trim();
+    const service = document.getElementById("service").value;
+    const date = document.getElementById("date").value;
+    const message = document.getElementById("message").value.trim();
+
+    const text = `*🚨 New Service Booking*👤 *Name:* ${name} 🏍️ *Bike:* ${bike} 🛠️ *Service:* ${service} 📅 *Preferred Date:* ${date} 📝 *Message:* ${message || 'N/A'}`;
+
+    const whatsappNumber = "971501229934";
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+
+    window.open(whatsappURL, "_blank");}
+</script>
+    <!-- 🤖 Premium AI Assistant -->
 <div id="premium-ai-icon">💬</div>
+
 <div id="premium-ai-box">
-  <div class="premium-header">MR Prestige AI <span onclick="closeAI()">✖</span></div>
+  <div class="premium-header">
+    MR Prestige AI
+    <span onclick="closeAI()">✖</span>
+  </div>
   <div id="premium-chat-body"></div>
   <div class="premium-footer">
     <input type="text" id="premium-user-input" placeholder="Ask about services..." />
@@ -94,36 +420,118 @@ function sendWhatsAppMessage(event) {
 </div>
 
 <style>
-#premium-ai-icon{position:fixed;bottom:90px;right:20px;background:linear-gradient(135deg,#f97316,#ea580c);width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:22px;cursor:pointer;z-index:9999;box-shadow:0 8px 25px rgba(0,0,0,0.3);}
-#premium-ai-box{position:fixed;bottom:160px;right:20px;width:340px;background:white;border-radius:16px;box-shadow:0 15px 40px rgba(0,0,0,0.3);display:none;flex-direction:column;overflow:hidden;z-index:9999;font-family:sans-serif;}
-.premium-header{background:linear-gradient(135deg,#f97316,#ea580c);color:white;padding:12px;font-weight:bold;display:flex;justify-content:space-between;}
-#premium-chat-body{padding:12px;height:260px;overflow-y:auto;font-size:14px;}
-.premium-footer{display:flex;border-top:1px solid #ddd;}
-.premium-footer input{flex:1;padding:10px;border:none;outline:none;}
-.premium-footer button{background:#f97316;color:white;border:none;padding:10px 15px;cursor:pointer;}
+#premium-ai-icon {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  background: linear-gradient(135deg,#f97316,#ea580c);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:22px;
+  cursor:pointer;
+  z-index:9999;
+  box-shadow:0 8px 25px rgba(0,0,0,0.3);
+}
+
+#premium-ai-box {
+  position: fixed;
+  bottom: 160px;
+  right: 20px;
+  width: 340px;
+  background:white;
+  border-radius:16px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.3);
+  display:none;
+  flex-direction:column;
+  overflow:hidden;
+  z-index:9999;
+  font-family:sans-serif;
+}
+
+.premium-header {
+  background:linear-gradient(135deg,#f97316,#ea580c);
+  color:white;
+  padding:12px;
+  font-weight:bold;
+  display:flex;
+  justify-content:space-between;
+}
+
+#premium-chat-body {
+  padding:12px;
+  height:260px;
+  overflow-y:auto;
+  font-size:14px;
+}
+
+.premium-footer {
+  display:flex;
+  border-top:1px solid #ddd;
+}
+
+.premium-footer input {
+  flex:1;
+  padding:10px;
+  border:none;
+  outline:none;
+}
+
+.premium-footer button {
+  background:#f97316;
+  color:white;
+  border:none;
+  padding:10px 15px;
+  cursor:pointer;
+}
 </style>
 
 <script>
-document.getElementById("premium-ai-icon").onclick = () => document.getElementById("premium-ai-box").style.display = "flex";
-function closeAI(){document.getElementById("premium-ai-box").style.display="none";}
-async function sendPremiumMessage(){
+document.getElementById("premium-ai-icon").onclick = () => {
+  document.getElementById("premium-ai-box").style.display = "flex";
+};
+
+function closeAI() {
+  document.getElementById("premium-ai-box").style.display = "none";
+}
+
+async function sendPremiumMessage() {
   const input = document.getElementById("premium-user-input");
   const message = input.value.trim();
-  if(!message) return;
+  if (!message) return;
+
   const chatBody = document.getElementById("premium-chat-body");
+
+  // Show user message
   chatBody.innerHTML += `<div style="text-align:right;margin-bottom:8px;"><b>You:</b> ${message}</div>`;
-  input.value="";
-  try{
-    const res = await fetch("/.netlify/functions/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message})});
-    const data = await res.json();
-    chatBody.innerHTML += `<div style="margin-bottom:8px;"><b>AI:</b> ${data.reply||'Sorry, no response'}</div>`;
+  input.value = "";
+
+  try {
+    const response = await fetch("/.netlify/functions/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message })
+    });
+
+    const data = await response.json();
+
+    chatBody.innerHTML += `<div style="margin-bottom:8px;"><b>AI:</b> ${data.reply}</div>`;
     chatBody.scrollTop = chatBody.scrollHeight;
-  }catch(err){
+
+  } catch (error) {
     chatBody.innerHTML += `<div style="color:red;margin-bottom:8px;">AI connection error.</div>`;
-    chatBody.scrollTop = chatBody.scrollHeight;
   }
 }
 </script>
 
-</body>
+
+
+
+  </body>
 </html>
+
+ye lo
