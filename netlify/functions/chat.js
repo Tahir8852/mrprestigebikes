@@ -14,10 +14,10 @@ export async function handler(event) {
           {
             role: "system",
             content: `You are a premium AI assistant for MR Prestige Bikes Repair Shop in Abu Dhabi.
-
+            
 Services:
 - Denting & Painting
-- Engine Maintenance (Polaris, Can-Am, RZR)
+- Engine Maintenance
 - Suspension Repair
 - Spare Parts
 - Bike Pickup Service
@@ -25,8 +25,7 @@ Services:
 Rules:
 - Always suggest relevant service.
 - Keep replies short & professional.
-- Encourage WhatsApp booking at 971501229934.
-- Support English and Arabic.`
+- Encourage WhatsApp booking at 971501229934.`
           },
           { role: "user", content: message }
         ]
@@ -43,9 +42,10 @@ Rules:
     };
 
   } catch (error) {
+    console.error(error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "AI Error" })
+      body: JSON.stringify({ reply: "AI Error" })
     };
   }
 }
