@@ -182,7 +182,7 @@
     </div>
     <p class="text-gray-400 text-sm tracking-widest uppercase font-bold">&copy; 2013-2027 MR PRESTIGE BIKES REPAIR SHOP. ABU DHABI.</p>
   </footer>
-    <!-- Floating AI Chat Button -->
+<!-- Floating AI Chat Button -->
 <div class="fixed bottom-6 right-6 z-[100]">
     <button onclick="toggleChat()" class="bg-[#00ced1] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition duration-300 flex items-center gap-2 font-bold">
         <span class="animate-pulse">💬</span> MR Prestige AI
@@ -193,23 +193,23 @@
         <div class="bg-[#00ced1] p-4 text-white font-black italic flex justify-between items-center">
             <div class="flex items-center gap-2">
                 <div class="w-2 h-2 bg-green-400 rounded-full animate-ping"></div>
-                <span class="tracking-tighter">PRESTIGE ASSISTANT</span>
+                <span class="tracking-tighter uppercase">Prestige Assistant</span>
             </div>
             <button onclick="toggleChat()" class="hover:rotate-90 transition">✕</button>
         </div>
         
-        <div id="chat-display" class="h-80 overflow-y-auto p-4 flex flex-col gap-3 font-medium text-gray-700 bg-gray-50/50">
+        <div id="chat-display" class="h-80 overflow-y-auto p-4 flex flex-col gap-3 font-medium text-gray-700 bg-gray-50/50 text-xs">
             <div class="text-left">
-                <span class="bg-[#00ced1] text-white p-3 rounded-2xl rounded-tl-none text-xs inline-block shadow-sm">
-                    Welcome to MR Prestige Abu Dhabi! 🛠️ <br><br>
-                    Main aapki Polaris, Can-Am ya RZR ki repair aur Liwa 2027 booking mein help kar sakta hoon. Poochiye kya poochna hai?
+                <span class="bg-[#00ced1] text-white p-3 rounded-2xl rounded-tl-none inline-block shadow-sm">
+                    Hello! Welcome to MR Prestige Abu Dhabi. 🛠️ <br><br>
+                    How can I assist you with your Polaris, Can-Am, or RZR today? We are also booking spots for Liwa 2027!
                 </span>
             </div>
         </div>
 
         <div class="p-4 bg-white border-t flex gap-2">
-            <input type="text" id="chat-input" onkeypress="handleChat(event)" placeholder="Type a message..." class="w-full bg-gray-100 p-3 rounded-xl outline-none text-sm border-2 border-transparent focus:border-[#00ced1] transition">
-            <button onclick="handleChat(event)" class="bg-[#00ced1] text-white px-4 rounded-xl hover:bg-black transition">➤</button>
+            <input type="text" id="chat-input" onkeypress="if(event.key === 'Enter') handleChat()" placeholder="Type your question..." class="w-full bg-gray-100 p-3 rounded-xl outline-none text-sm border-2 border-transparent focus:border-[#00ced1] transition">
+            <button onclick="handleChat()" class="bg-[#00ced1] text-white px-4 rounded-xl hover:bg-black transition">➤</button>
         </div>
         <div class="p-2 text-center bg-white border-t">
             <a href="https://wa.me/971501229934" target="_blank" class="text-[10px] font-black text-[#00ced1] uppercase tracking-[2px] hover:underline">Direct WhatsApp Support</a>
@@ -217,70 +217,78 @@
     </div>
 </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+    // Initialize Swiper
     const swiper = new Swiper(".mySwiper", {
-      loop: true,
-      slidesPerView: 1.2,
-      spaceBetween: 25,
-      centeredSlides: true,
-      autoplay: { delay: 4000 },
-      pagination: { el: ".swiper-pagination", clickable: true },
-      breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } },
+        loop: true,
+        slidesPerView: 1.2,
+        spaceBetween: 25,
+        centeredSlides: true,
+        autoplay: { delay: 4000 },
+        pagination: { el: ".swiper-pagination", clickable: true },
+        breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } },
     });
 
+    // Booking Form WhatsApp Logic
     function sendWhatsAppMessage(event) {
-      event.preventDefault();
-      const name = document.getElementById("name").value;
-      const bike = document.getElementById("bike").value;
-      const service = document.getElementById("service").value;
-      const date = document.getElementById("date").value;
-      const text = `*🚨 NEW SERVICE BOOKING 🚨*%0A%0A*👤 Customer:* ${name}%0A*🏍️ Machine:* ${bike}%0A*🛠️ Service:* ${service}%0A*📅 Date:* ${date}`;
-      window.open(`https://wa.me/971501229934?text=${text}`, "_blank");
+        event.preventDefault();
+        const name = document.getElementById("name").value;
+        const bike = document.getElementById("bike").value;
+        const service = document.getElementById("service").value;
+        const date = document.getElementById("date").value;
+        const text = `*🚨 NEW SERVICE BOOKING 🚨*%0A%0A*👤 Customer:* ${name}%0A*🏍️ Machine:* ${bike}%0A*🛠️ Service:* ${service}%0A*📅 Date:* ${date}`;
+        window.open(`https://wa.me/971501229934?text=${text}`, "_blank");
     }
-  // AI Chat Toggle Logic
-function toggleChat() {
-    const chatBox = document.getElementById('ai-chat-box');
-    chatBox.classList.toggle('hidden');
-}
 
-// AI Response Logic (Custom for MR Prestige Abu Dhabi)
-function handleChat(event) {
-    if (event.key === 'Enter' || event.type === 'click') {
+    // Chat Functions
+    function toggleChat() {
+        const chatBox = document.getElementById('ai-chat-box');
+        chatBox.classList.toggle('hidden');
+    }
+
+    function handleChat() {
         const input = document.getElementById('chat-input');
         const display = document.getElementById('chat-display');
         const message = input.value.trim().toLowerCase();
 
         if (message === "") return;
 
-        // User message UI mein add karein
-        display.innerHTML += `<div class="text-right"><span class="bg-white border border-gray-200 p-3 rounded-2xl rounded-tr-none text-xs inline-block shadow-sm text-gray-800">${input.value}</span></div>`;
+        // Display User Message
+        display.innerHTML += `<div class="text-right"><span class="bg-white border border-gray-200 p-3 rounded-2xl rounded-tr-none inline-block shadow-sm text-gray-800">${input.value}</span></div>`;
         
-        let response = "I'm not sure about that. Please contact our specialist on WhatsApp at +971 50 122 9934 for exact details!";
+        let response = "I'm sorry, I didn't quite catch that. Please contact our specialist directly on WhatsApp at +971 50 122 9934 for detailed assistance!";
 
-        // Smart Logic for MR Prestige Garage
-        if (message.includes("hi") || message.includes("hello") || message.includes("salam")) {
-            response = "Walaikum Assalam! MR Prestige Abu Dhabi mein khushamdeed. Hum Polaris, Can-Am aur RZR ke expert hain. Kya help chahiye?";
-        } else if (message.includes("location") || message.includes("kahan") || message.includes("address") || message.includes("map")) {
-            response = "Humara garage Abu Dhabi mein hai! Aap website par neechay diye gaye Google Map se location dekh sakte hain.";
-        } else if (message.includes("liwa") || message.includes("2027") || message.includes("desert")) {
-            response = "Liwa 2027 ke liye hum special support provide kar rahe hain! 200 AED mein booking karein aur 50% discount payein.";
-        } else if (message.includes("service") || message.includes("repair") || message.includes("kam") || message.includes("fix")) {
-            response = "Hum ye sab karte hain: \n✅ Engine Diagnostics \n✅ Body Painting & Denting \n✅ Suspension Tuning \n✅ Custom Modifications.";
-        } else if (message.includes("price") || message.includes("cost") || message.includes("kitna")) {
-            response = "Kam ke mutabiq price hogi. Aap bike ki photo WhatsApp (+971501229934) karein, hum foran estimate denge.";
-        } else if (message.includes("polaris") || message.includes("can-am") || message.includes("rzr")) {
-            response = "Yes! Hum Polaris, Can-Am aur RZR ke genuine parts aur expert repair service dete hain.";
+        if (message.includes("hi") || message.includes("hello") || message.includes("hey")) {
+            response = "Hello! Welcome to MR Prestige Abu Dhabi. We specialize in high-performance off-road repairs. How can I help you today?";
+        } 
+        else if (message.includes("location") || message.includes("where") || message.includes("address") || message.includes("map")) {
+            response = "We are located in Abu Dhabi! You can find our exact location on the Google Map at the bottom of this page.";
+        } 
+        else if (message.includes("liwa") || message.includes("2027") || message.includes("desert") || message.includes("offer")) {
+            response = "Liwa 2027 is our specialty! Book your technical support for only 200 AED now and get a 50% discount on services.";
+        } 
+        else if (message.includes("service") || message.includes("repair") || message.includes("fix") || message.includes("work")) {
+            response = "Our professional services include: <br>• Engine Overhauls & Diagnostics<br>• Custom Body Painting & Denting<br>• Professional Suspension Tuning<br>• Full Technical Support for Liwa.";
+        } 
+        else if (message.includes("price") || message.includes("cost") || message.includes("how much")) {
+            response = "Pricing depends on the specific machine and required work. Please send a photo of your bike to our WhatsApp (+971501229934) for a free estimate.";
+        } 
+        else if (message.includes("polaris") || message.includes("can-am") || message.includes("rzr") || message.includes("atv")) {
+            response = "Yes, we are experts in Polaris, Can-Am, and RZR machines. We use genuine parts and professional tools for all repairs.";
+        }
+        else if (message.includes("contact") || message.includes("number") || message.includes("call") || message.includes("whatsapp")) {
+            response = "You can reach us at +971 50 122 9934 or visit our garage in Abu Dhabi.";
         }
 
-        // AI response add karein after small delay
         setTimeout(() => {
-            display.innerHTML += `<div class="text-left"><span class="bg-[#00ced1] text-white p-3 rounded-2xl rounded-tl-none text-xs inline-block shadow-sm">${response}</span></div>`;
+            display.innerHTML += `<div class="text-left"><span class="bg-[#00ced1] text-white p-3 rounded-2xl rounded-tl-none inline-block shadow-sm">${response}</span></div>`;
             display.scrollTop = display.scrollHeight;
         }, 600);
 
         input.value = "";
     }
-}</script>
+</script>
 </body>
 </html>
